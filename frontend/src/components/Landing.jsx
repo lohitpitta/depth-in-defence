@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Shield, Lock, AlertTriangle, CheckCircle } from 'lucide-react'
+import { Shield, Lock, AlertTriangle, CheckCircle, Globe } from 'lucide-react'
 
 export default function Landing() {
   const navigate = useNavigate()
@@ -26,6 +26,24 @@ export default function Landing() {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-4xl w-full">
+        {/* Navigation */}
+        <div className="flex justify-center gap-4 mb-8">
+          <button
+            onClick={() => navigate('/')}
+            className="btn-primary flex items-center"
+          >
+            <Shield className="w-5 h-5 mr-2" />
+            Security Assessment
+          </button>
+          <button
+            onClick={() => navigate('/scanner')}
+            className="btn-secondary flex items-center"
+          >
+            <Globe className="w-5 h-5 mr-2" />
+            Website Scanner
+          </button>
+        </div>
+
         <div className="text-center mb-12">
           <div className="flex justify-center mb-4">
             <Shield className="w-20 h-20 text-primary-600" />
