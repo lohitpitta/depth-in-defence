@@ -1,0 +1,412 @@
+{
+  "layers": [
+    {
+      "id": "perimeter",
+      "name": "Perimeter Security",
+      "description": "External boundary protection and network access controls",
+      "questions": [
+        {
+          "id": "perimeter_1",
+          "text": "Do you have a next-generation firewall (NGFW) deployed at your network perimeter?",
+          "options": [
+            { "text": "Yes, with comprehensive IPS/IDS and application control", "points": 100 },
+            { "text": "Yes, basic firewall only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Deploy a next-generation firewall with intrusion prevention, deep packet inspection, and application-aware filtering to protect your network perimeter.",
+          "riskExplanation": "Without a modern firewall, your network perimeter is vulnerable to unauthorized access, malware, and sophisticated attacks that can bypass traditional packet filters."
+        },
+        {
+          "id": "perimeter_2",
+          "text": "Do you use a Web Application Firewall (WAF) to protect public-facing web applications?",
+          "options": [
+            { "text": "Yes, for all public applications", "points": 100 },
+            { "text": "Yes, for critical applications only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement a WAF for all public-facing web applications to protect against OWASP Top 10 vulnerabilities, SQL injection, XSS, and other web-based attacks.",
+          "riskExplanation": "Web applications are common attack vectors. Without WAF protection, your applications are exposed to injection attacks, data breaches, and service disruptions."
+        },
+        {
+          "id": "perimeter_3",
+          "text": "Do you conduct regular penetration testing of your external-facing infrastructure?",
+          "options": [
+            { "text": "Yes, quarterly or more frequently", "points": 100 },
+            { "text": "Yes, annually", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Schedule quarterly penetration tests by qualified security professionals to identify and remediate vulnerabilities before attackers can exploit them.",
+          "riskExplanation": "Without regular penetration testing, unknown vulnerabilities in your perimeter defenses may remain undetected until exploited by malicious actors."
+        },
+        {
+          "id": "perimeter_4",
+          "text": "Do you have DDoS protection services in place?",
+          "options": [
+            { "text": "Yes, with dedicated DDoS mitigation service", "points": 100 },
+            { "text": "Yes, basic ISP-level only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement a dedicated DDoS protection service with traffic scrubbing capabilities to ensure availability during volumetric attacks.",
+          "riskExplanation": "DDoS attacks can cause significant downtime and revenue loss. Basic ISP protection is often insufficient against sophisticated, multi-vector attacks."
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "name": "Network Security",
+      "description": "Internal network segmentation and monitoring",
+      "questions": [
+        {
+          "id": "network_1",
+          "text": "Is your internal network segmented to separate critical systems from general traffic?",
+          "options": [
+            { "text": "Yes, with multiple security zones and strict controls", "points": 100 },
+            { "text": "Yes, basic segmentation only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement network segmentation using VLANs, subnets, and firewall rules to isolate critical systems and limit lateral movement by attackers.",
+          "riskExplanation": "Flat networks allow attackers to move freely once they gain initial access. Segmentation contains breaches and protects critical assets."
+        },
+        {
+          "id": "network_2",
+          "text": "Do you monitor network traffic for security anomalies and intrusions?",
+          "options": [
+            { "text": "Yes, with SIEM and automated alerting", "points": 100 },
+            { "text": "Yes, basic logging only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Deploy a SIEM solution with network traffic analysis, anomaly detection, and automated alerting to identify suspicious activities in real-time.",
+          "riskExplanation": "Without network monitoring, security incidents may go undetected for extended periods, allowing attackers to exfiltrate data or cause damage."
+        },
+        {
+          "id": "network_3",
+          "text": "Do you enforce network access control (NAC) for devices connecting to your network?",
+          "options": [
+            { "text": "Yes, with 802.1X and posture assessment", "points": 100 },
+            { "text": "Yes, basic MAC filtering only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement 802.1X authentication with NAC to ensure only authorized and compliant devices can access network resources.",
+          "riskExplanation": "Unauthorized devices on your network can introduce malware, bypass security controls, and provide attackers with entry points."
+        },
+        {
+          "id": "network_4",
+          "text": "Do you use VPN with multi-factor authentication for remote access?",
+          "options": [
+            { "text": "Yes, MFA required for all remote users", "points": 100 },
+            { "text": "Yes, MFA optional or for some users", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Enforce MFA for all VPN connections and consider implementing Zero Trust Network Access (ZTNA) for more secure remote access.",
+          "riskExplanation": "VPN credentials are frequently targeted. Without MFA, compromised credentials allow attackers full access to your internal network."
+        }
+      ]
+    },
+    {
+      "id": "endpoint",
+      "name": "Endpoint Security",
+      "description": "Device-level protection and management",
+      "questions": [
+        {
+          "id": "endpoint_1",
+          "text": "Do you have endpoint detection and response (EDR) deployed on all corporate devices?",
+          "options": [
+            { "text": "Yes, on all devices with centralized management", "points": 100 },
+            { "text": "Yes, on critical devices only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Deploy EDR solutions across all endpoints to detect, investigate, and respond to threats in real-time with automated containment capabilities.",
+          "riskExplanation": "Endpoints are primary attack vectors. Without EDR, malware and advanced threats can spread undetected across your organization."
+        },
+        {
+          "id": "endpoint_2",
+          "text": "Are all endpoints kept up-to-date with security patches within a defined timeframe?",
+          "options": [
+            { "text": "Yes, automated patching within 7 days", "points": 100 },
+            { "text": "Yes, manual patching within 30 days", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement automated patch management with defined SLAs (e.g., critical patches within 48 hours, all patches within 7 days) to reduce vulnerability exposure.",
+          "riskExplanation": "Unpatched vulnerabilities are among the most common exploitation methods. Delays in patching increase your risk significantly."
+        },
+        {
+          "id": "endpoint_3",
+          "text": "Do you enforce full-disk encryption on all corporate laptops and mobile devices?",
+          "options": [
+            { "text": "Yes, mandatory for all devices", "points": 100 },
+            { "text": "Yes, for laptops only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Mandate full-disk encryption (BitLocker, FileVault, or equivalent) on all corporate devices to protect data at rest in case of theft or loss.",
+          "riskExplanation": "Unencrypted devices expose sensitive data if lost or stolen. Encryption is a fundamental protection for data at rest."
+        },
+        {
+          "id": "endpoint_4",
+          "text": "Do you have application whitelisting or allow-listing policies in place?",
+          "options": [
+            { "text": "Yes, strict allow-listing enforced", "points": 100 },
+            { "text": "Yes, block-listing only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement application allow-listing to prevent execution of unauthorized software, reducing the attack surface for malware and unauthorized tools.",
+          "riskExplanation": "Without application control, users can install malicious or unauthorized software, increasing security risks and compliance issues."
+        }
+      ]
+    },
+    {
+      "id": "application",
+      "name": "Application Security",
+      "description": "Secure software development and deployment practices",
+      "questions": [
+        {
+          "id": "application_1",
+          "text": "Do you conduct static application security testing (SAST) during development?",
+          "options": [
+            { "text": "Yes, automated in CI/CD pipeline", "points": 100 },
+            { "text": "Yes, manual scans periodically", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Integrate SAST tools into your CI/CD pipeline to automatically detect security vulnerabilities during the development process.",
+          "riskExplanation": "Security vulnerabilities introduced during development are expensive to fix later. SAST catches issues early in the lifecycle."
+        },
+        {
+          "id": "application_2",
+          "text": "Do you perform dynamic application security testing (DAST) on applications before production deployment?",
+          "options": [
+            { "text": "Yes, automated for all releases", "points": 100 },
+            { "text": "Yes, for major releases only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement automated DAST scanning for all application releases to identify runtime vulnerabilities before they reach production.",
+          "riskExplanation": "Runtime vulnerabilities are only detectable when applications are running. DAST complements SAST by finding issues in deployed configurations."
+        },
+        {
+          "id": "application_3",
+          "text": "Do you use software composition analysis (SCA) to scan third-party dependencies?",
+          "options": [
+            { "text": "Yes, automated scanning of all dependencies", "points": 100 },
+            { "text": "Yes, manual review periodically", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement SCA tools to automatically scan all third-party dependencies for known vulnerabilities (CVEs) and license compliance issues.",
+          "riskExplanation": "Third-party libraries often contain vulnerabilities. SCA helps you identify and update risky dependencies before they can be exploited."
+        },
+        {
+          "id": "application_4",
+          "text": "Do you have a secure software development lifecycle (SSDLC) policy in place?",
+          "options": [
+            { "text": "Yes, comprehensive SSDLC with training", "points": 100 },
+            { "text": "Yes, basic guidelines only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Develop and enforce a comprehensive SSDLC policy that includes security requirements, threat modeling, code reviews, and developer security training.",
+          "riskExplanation": "Without a structured SSDLC, security is often an afterthought, leading to vulnerabilities that could have been prevented through proper processes."
+        }
+      ]
+    },
+    {
+      "id": "data",
+      "name": "Data Security",
+      "description": "Data classification, encryption, and protection",
+      "questions": [
+        {
+          "id": "data_1",
+          "text": "Do you have a formal data classification policy (e.g., public, internal, confidential, restricted)?",
+          "options": [
+            { "text": "Yes, with automated enforcement", "points": 100 },
+            { "text": "Yes, manual classification only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement a data classification framework with automated labeling and enforce appropriate protection controls based on classification levels.",
+          "riskExplanation": "Without data classification, you cannot apply appropriate protection controls, leading to either over-protection of low-value data or under-protection of sensitive information."
+        },
+        {
+          "id": "data_2",
+          "text": "Do you encrypt sensitive data both at rest and in transit?",
+          "options": [
+            { "text": "Yes, strong encryption for both", "points": 100 },
+            { "text": "Yes, for at rest or transit only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement strong encryption (AES-256 for at rest, TLS 1.3 for transit) for all sensitive data, with proper key management practices.",
+          "riskExplanation": "Unencrypted data is vulnerable to interception and theft. Encryption is essential for protecting sensitive information in all states."
+        },
+        {
+          "id": "data_3",
+          "text": "Do you have regular data backup with tested recovery procedures?",
+          "options": [
+            { "text": "Yes, automated with quarterly recovery tests", "points": 100 },
+            { "text": "Yes, automated but no regular testing", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement the 3-2-1 backup strategy (3 copies, 2 different media, 1 offsite) with regular recovery testing to ensure business continuity.",
+          "riskExplanation": "Without tested backups, data loss from ransomware, hardware failure, or human error can be catastrophic and unrecoverable."
+        },
+        {
+          "id": "data_4",
+          "text": "Do you implement data loss prevention (DLP) controls?",
+          "options": [
+            { "text": "Yes, with endpoint and network DLP", "points": 100 },
+            { "text": "Yes, basic email filtering only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Deploy comprehensive DLP solutions across endpoints, network, and cloud to prevent unauthorized transmission of sensitive data.",
+          "riskExplanation": "Data breaches often occur through accidental or malicious data exfiltration. DLP controls help prevent sensitive data from leaving your environment."
+        }
+      ]
+    },
+    {
+      "id": "identity",
+      "name": "Identity & Access Management",
+      "description": "User authentication, authorization, and access controls",
+      "questions": [
+        {
+          "id": "identity_1",
+          "text": "Do you enforce multi-factor authentication (MFA) for all admin accounts?",
+          "options": [
+            { "text": "Yes, for all admin and privileged accounts", "points": 100 },
+            { "text": "Yes, for some admin accounts", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Enforce MFA using phishing-resistant methods (FIDO2, hardware keys) for all administrative and privileged accounts without exception.",
+          "riskExplanation": "Admin accounts are high-value targets. Without MFA, compromised credentials give attackers full control over your systems."
+        },
+        {
+          "id": "identity_2",
+          "text": "Do you enforce MFA for all user accounts?",
+          "options": [
+            { "text": "Yes, mandatory for all users", "points": 100 },
+            { "text": "Yes, optional or for some users", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement MFA for all user accounts, starting with passwordless authentication where possible, to dramatically reduce credential theft risks.",
+          "riskExplanation": "Password-based authentication is fundamentally weak. MFA is one of the most effective controls against account compromise."
+        },
+        {
+          "id": "identity_3",
+          "text": "Do you follow the principle of least privilege for access rights?",
+          "options": [
+            { "text": "Yes, with regular access reviews", "points": 100 },
+            { "text": "Yes, but no regular reviews", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement least privilege access with quarterly access reviews, automated provisioning/deprovisioning, and just-in-time access for privileged roles.",
+          "riskExplanation": "Excessive access rights increase the impact of compromised accounts. Regular reviews are essential to prevent privilege creep."
+        },
+        {
+          "id": "identity_4",
+          "text": "Do you have a single sign-on (SSO) solution for cloud applications?",
+          "options": [
+            { "text": "Yes, with centralized identity management", "points": 100 },
+            { "text": "Yes, for some applications only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Deploy SSO with centralized identity management to improve security, simplify user management, and enable consistent access policies across applications.",
+          "riskExplanation": "Without SSO, users must manage multiple credentials, leading to password reuse and increased attack surface for credential theft."
+        }
+      ]
+    },
+    {
+      "id": "physical",
+      "name": "Physical Security",
+      "description": "Physical access controls and environmental protections",
+      "questions": [
+        {
+          "id": "physical_1",
+          "text": "Do you have controlled physical access to your data centers and server rooms?",
+          "options": [
+            { "text": "Yes, multi-factor authentication and logging", "points": 100 },
+            { "text": "Yes, keycard or basic access control", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement multi-factor physical access controls with audit logging for all data center and server room entries, including visitor management.",
+          "riskExplanation": "Unauthorized physical access can lead to equipment theft, data theft, and sabotage. Physical security is foundational to overall security."
+        },
+        {
+          "id": "physical_2",
+          "text": "Do you have video surveillance monitoring critical areas?",
+          "options": [
+            { "text": "Yes, with retention and monitoring", "points": 100 },
+            { "text": "Yes, recording only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Deploy video surveillance with adequate retention (90+ days) for all critical areas, with regular review procedures and secure storage.",
+          "riskExplanation": "Video surveillance deters physical attacks and provides forensic evidence for investigations. Without it, physical incidents are harder to investigate."
+        },
+        {
+          "id": "physical_3",
+          "text": "Do you have visitor management procedures for all facilities?",
+          "options": [
+            { "text": "Yes, with escort requirements and logging", "points": 100 },
+            { "text": "Yes, basic sign-in process", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement comprehensive visitor management including pre-registration, badge issuance, escort requirements, and exit confirmation.",
+          "riskExplanation": "Unmanaged visitors pose significant security risks. Formal procedures ensure accountability and prevent unauthorized access."
+        },
+        {
+          "id": "physical_4",
+          "text": "Do you have environmental controls (fire suppression, HVAC, UPS) for critical infrastructure?",
+          "options": [
+            { "text": "Yes, with monitoring and maintenance", "points": 100 },
+            { "text": "Yes, basic systems only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement comprehensive environmental controls with monitoring, regular maintenance, and automated alerts for fire, temperature, humidity, and power.",
+          "riskExplanation": "Environmental failures (fire, flood, power loss) can cause catastrophic damage and extended downtime. Proper controls are essential for availability."
+        }
+      ]
+    },
+    {
+      "id": "policies",
+      "name": "Policies & Awareness",
+      "description": "Security governance, policies, and training programs",
+      "questions": [
+        {
+          "id": "policies_1",
+          "text": "Do you have documented security policies covering all major areas?",
+          "options": [
+            { "text": "Yes, comprehensive and regularly reviewed", "points": 100 },
+            { "text": "Yes, basic policies exist", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Develop and maintain a comprehensive set of security policies with annual reviews, including acceptance tracking and compliance monitoring.",
+          "riskExplanation": "Without clear policies, security practices are inconsistent and employees lack guidance on proper security behaviors."
+        },
+        {
+          "id": "policies_2",
+          "text": "Do you provide regular security awareness training to all employees?",
+          "options": [
+            { "text": "Yes, quarterly with phishing simulations", "points": 100 },
+            { "text": "Yes, annual training only", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Implement quarterly security awareness training with phishing simulations, covering current threats and reinforcing security best practices.",
+          "riskExplanation": "Employees are often the weakest link. Regular training significantly reduces the risk of phishing, social engineering, and human error."
+        },
+        {
+          "id": "policies_3",
+          "text": "Do you have an incident response plan that is regularly tested?",
+          "options": [
+            { "text": "Yes, with annual tabletop exercises", "points": 100 },
+            { "text": "Yes, documented but not tested", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Develop a comprehensive incident response plan with defined roles, playbooks, and conduct annual tabletop exercises to test and improve response capabilities.",
+          "riskExplanation": "Without a tested incident response plan, security incidents will be handled chaotically, increasing damage and recovery time."
+        },
+        {
+          "id": "policies_4",
+          "text": "Do you conduct regular security compliance audits or assessments?",
+          "options": [
+            { "text": "Yes, annual with third-party validation", "points": 100 },
+            { "text": "Yes, internal self-assessments", "points": 50 },
+            { "text": "No", "points": 0 }
+          ],
+          "recommendation": "Schedule annual security assessments with qualified auditors to validate compliance with policies, regulations, and industry best practices.",
+          "riskExplanation": "Without regular audits, security gaps may go undetected, and you may fail to identify non-compliance with regulatory requirements."
+        }
+      ]
+    }
+  ]
+}
