@@ -25,37 +25,6 @@ A security posture self-assessment tool for organizations that evaluates securit
 
 - Node.js 16+ and npm
 
-## Installation
-
-1. Clone the repository and navigate to the project directory:
-```bash
-cd "Defense in Depth Security Portal"
-```
-
-2. Install all dependencies (root, backend, and frontend):
-```bash
-npm run install:all
-```
-
-Or install separately:
-```bash
-npm install
-cd backend && npm install
-cd ../frontend && npm install
-```
-
-## Running the Application
-
-### Development Mode (Both Frontend and Backend)
-
-```bash
-npm run dev
-```
-
-This will start:
-- Backend server on `http://localhost:3001`
-- Frontend development server on `http://localhost:3000`
-
 ### Individual Services
 
 **Backend only:**
