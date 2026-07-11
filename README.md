@@ -115,6 +115,12 @@ defense-in-depth-security-portal/
 - Results are based on user responses
 - Suitable for internal security posture evaluation and awareness
 
-## License
+## Team Members
 
-This project is provided as-is for security assessment purposes.
+- Pitta Lohit
+- Shreya Singh
+- Devansh Mishra
+- Hetkumar Patel
+- Guduru Pavan Teja
+- Himanshu
+- Rajat Gupta
